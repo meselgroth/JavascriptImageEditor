@@ -1,4 +1,4 @@
-import Canvas from './canvas.mjs'
+import Canvas from './canvas.mjs';
 
-let canvasHandler = new Canvas()
-canvasHandler.Draw()
+let canvasHandler = new Canvas(document.getElementById('canvas'));
+canvasHandler.Draw();
