@@ -5,6 +5,9 @@ The only libraries used are:
 - Jest for testing/TDD
 - ESLint to keep code pretty and follow conventions
 
+Hosted on github pages:
+https://meselgroth.github.io/JavascriptImageEditor
+
 Note: Only tested in Chrome.
 
 ## Todo
