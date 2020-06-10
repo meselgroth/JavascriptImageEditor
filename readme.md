@@ -12,6 +12,7 @@ Note: Only tested in Chrome.
 
 ## Todo
 - Add Jest for testing and first tests: index-integration-spec, canvas-spec
+- Swap Serve to BrowserSync to auto reload
 - Display a bitmap using canvas2d
 - Change colour: Select a colour on canvas, select a new colour, change all of selected colour to new colour
     - Extend to allow for a range of colours
