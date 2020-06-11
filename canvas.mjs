@@ -7,7 +7,7 @@ export default class Canvas {
         let imageBitmap = await createImageBitmap(imgElement);
         this.ctx.drawImage(imageBitmap,0,0);
     }
-    Draw() {
+    ChangeColour() {
         let ctx = this.ctx;
         ctx.fillStyle = 'green';
         ctx.fillRect(10, 10, 150, 100);
