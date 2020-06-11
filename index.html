@@ -6,8 +6,15 @@
     </head>
     <body>
         <h1>Bitmap editor</h1>
-        <canvas id="canvas" ></canvas>
+        
+        <div>Canvas</div>
+        <canvas id="canvas" class="border"></canvas>
+        <button id="button-add">Add Bitmap</button>
         <button id="button-colour">Change</button>
+        
+        <div>Original bitmap <span id='div-filename' class="filename-label"></span></div>
+        <img id="img-bitmap" src="./Monochrome100x100.bmp" class="border" />
+
         <script src="index.mjs" type="module" ></script>
     </body>
 </html>

@@ -3,6 +3,10 @@ export default class Canvas {
         this.canvasHtmlElement = canvasHtmlElement;
         this.ctx = this.canvasHtmlElement.getContext('2d');
     }
+    async Add(imgElement){
+        let imageBitmap = await createImageBitmap(imgElement);
+        this.ctx.drawImage(imageBitmap,0,0);
+    }
     Draw() {
         let ctx = this.ctx;
         ctx.fillStyle = 'green';

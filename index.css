@@ -5,3 +5,11 @@ button {
     padding: 10px;
     min-width: 106px;
 }
+
+.filename-label {
+    font-style: italic;
+}
+
+.border {
+    border: lightgray 1px solid;
+}
