@@ -1,5 +1,5 @@
 # Vanila JS App to edit images
-Converts an image to a bitmap and draws onto a canvas (CanvasRenderingContext2D).
+Converts an image (any type) to a bitmap and draws onto a canvas (CanvasRenderingContext2D).
 
 This will use ECMAScript's latest supported features (as of June 2020) and will not bundle/transpile/polyfill. 
 The only libraries used are:
