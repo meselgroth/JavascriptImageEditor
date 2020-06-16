@@ -1,15 +1,17 @@
-export default class Bitmap{
-    constructor(imgHtmlElement){
+export default class Bitmap {
+    constructor(imgHtmlElement) {
         this.imgHtmlElement = imgHtmlElement;
     }
-    async CopyAndChangeColour(){
+    async CopyAndChangeColour() {
         let imgData = await fetch(this.imgHtmlElement.src);
         let blob = await imgData.blob(); // Read response ReadableStream to completion. This could be improved by modifying bytes as stream is read.
         let arrayBuffer = await blob.arrayBuffer(); // get binary data
 
-        // modify bitmap bytes
-
-        await this.AddImageElementWithCanvas(blob);
+        // modify bitmap bytes (only supports bitmap files)
+        let uInt8Array = new Uint8Array(arrayBuffer);
+        for (let i = 61; i < uInt8Array.length; i++) {
+            uInt8Array[i] = ~uInt8Array[i] >>> 0; // Inverse byte and unsign (right-shift (unsigned) by 0 bits)
+        }
         await this.AddImageElementFromBytes(arrayBuffer);
     }
 
@@ -21,6 +23,7 @@ export default class Bitmap{
         newCanvasElement.getContext('2d').drawImage(newImgData, 0, 0);
         let newImg = new Image();
         newImg.src = newCanvasElement.toDataURL();
+        console.log(`Canvas png length:${newCanvasElement.toDataURL().length}`);
         newImg.className = 'border';
         document.body.appendChild(newImg);
     }
@@ -33,7 +36,9 @@ export default class Bitmap{
         }
         let b64 = btoa(utf8ByteString);  // Encode ascii string to base64 string
         let newImg = new Image();
-        newImg.src = `data:image/bmp;base64,${b64}`;
+        newImg.src = `data:image/bmp;base64,${b64}`;  // Use base64 encoding to ensure integrity of string
+        console.log(`Array buffer btoa length:${newImg.src.length}`);
+
         newImg.className = 'border';
         document.body.appendChild(newImg);
     }

@@ -13,7 +13,7 @@ export default class Canvas {
         let imageData = ctx.getImageData(0, 0, 100, 100); // Get RGBA bytes
         for (let i = 0; i < imageData.data.length; i++) {
             if ((i+1) % 4 === 0) continue; // skip alpha values
-            imageData.data[i] = imageData.data[i] >> 1; // left shift RGB values by 1 bit
+            imageData.data[i] = imageData.data[i] >> 1; // right shift RGB values by 1 bit
         }
         ctx.putImageData(imageData, 0, 0);
     }
