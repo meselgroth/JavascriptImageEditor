@@ -12,7 +12,7 @@ export default class Bitmap {
         for (let i = 61; i < uInt8Array.length; i++) {
             uInt8Array[i] = ~uInt8Array[i] >>> 0; // Inverse byte and unsign (right-shift (unsigned) by 0 bits)
         }
-        await this.AddImageElementFromBytes(arrayBuffer);
+        return await this.ConvertBytesToImage(arrayBuffer);
     }
 
     async AddImageElementWithCanvas(blob) {
@@ -28,7 +28,7 @@ export default class Bitmap {
         document.body.appendChild(newImg);
     }
 
-    async AddImageElementFromBytes(arrayBuffer) {
+    async ConvertBytesToImage(arrayBuffer) {
         let uInt8Array = new Uint8Array(arrayBuffer);  // Get 8bit bytes (1 byte per element)
         let utf8ByteString = '';
         for (let i = 0; i < uInt8Array.length; i++) {
@@ -39,7 +39,6 @@ export default class Bitmap {
         newImg.src = `data:image/bmp;base64,${b64}`;  // Use base64 encoding to ensure integrity of string
         console.log(`Array buffer btoa length:${newImg.src.length}`);
 
-        newImg.className = 'border';
-        document.body.appendChild(newImg);
+        return newImg;
     }
 }

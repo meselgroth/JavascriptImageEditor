@@ -1,4 +1,4 @@
-import Canvas from './canvas.mjs';
+import Canvas from './canvas.js';
 import Bitmap from './bitmap.js';
 
 let imgElement = document.getElementById('img-bitmap');
@@ -11,4 +11,9 @@ document.getElementById('button-colour').onclick = canvas.ChangeColour.bind(canv
 document.getElementById('div-filename').textContent = `(${imgElement.getAttribute('src')})`;
 
 let bitmap = new Bitmap(imgElement);
-document.getElementById('button-bitmap').onclick = () => bitmap.CopyAndChangeColour();
+document.getElementById('button-bitmap').onclick = async () => {
+    let newImg = await bitmap.CopyAndChangeColour();
+    
+    newImg.className = 'border';
+    document.body.appendChild(newImg);
+};
