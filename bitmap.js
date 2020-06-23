@@ -9,7 +9,7 @@ export default class Bitmap {
 
         // modify bitmap bytes (only supports bitmap files)
         let uInt8Array = new Uint8Array(arrayBuffer);
-        for (let i = 61; i < uInt8Array.length; i++) {
+        for (let i = 61; i < uInt8Array.length; i++) { // Start at 61st byte (after header bytes)
             uInt8Array[i] = ~uInt8Array[i] >>> 0; // Inverse byte and unsign (right-shift (unsigned) by 0 bits)
         }
         return await this.ConvertBytesToImage(arrayBuffer);

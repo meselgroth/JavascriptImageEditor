@@ -1,22 +1,36 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Image Editor</title>
-        <link rel="stylesheet" href="./index.css" />
-    </head>
-    <body>
-        <h1>Bitmap editor</h1>
-        
-        <div>Canvas</div>
-        <canvas id="canvas" class="border"></canvas>
-        
-        <button id="button-add">Add Bitmap</button>
-        <button id="button-colour">Change Colour</button>
-        
-        <div>Original bitmap <span id='div-filename' class="filename-label"></span></div>
-        <img id="img-bitmap" src="./Monochrome100x100.bmp" class="border" />
-        <button id="button-bitmap">Change Bitmap</button>
 
-        <script src="index.js" type="module" ></script>
-    </body>
+<head>
+    <title>Image Editor</title>
+    <link rel="stylesheet" href="./index.css" />
+</head>
+
+<body>
+    <h1>Bitmap editor</h1>
+
+    <div>Canvas</div>
+    <canvas id="canvas" class="border" title="Click to read colour"></canvas>
+
+    <button id="button-add">Add Bitmap</button>
+    <div>
+        <label>From Colour</label>
+        <input id="text-from-red" class="input-small" />
+        <input id="text-from-green" class="input-small" />
+        <input id="text-from-blue" class="input-small" />
+        <button id="button-darken" class="button-small">Darken</button>
+        <label>To Colour</label>
+        <input id="text-to-red" class="input-small" />
+        <input id="text-to-green" class="input-small" />
+        <input id="text-to-blue" class="input-small" />
+        <button id="button-colour">Change Colour</button>
+    </div>
+
+    <div>Original bitmap <span id='div-filename' class="filename-label"></span></div>
+    <img id="img-bitmap" src="./Monochrome100x100.bmp" class="border" />
+    <button id="button-bitmap">Change Bitmap</button>
+
+    <script src="index.js" type="module"></script>
+</body>
+
 </html>

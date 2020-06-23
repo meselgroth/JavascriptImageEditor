@@ -4,6 +4,13 @@ body {
 button {
     padding: 10px;
     min-width: 106px;
+    font: inherit;
+}
+
+.button-small {
+    padding: 0px;
+    min-width: 0px;
+    font-size: smaller;
 }
 
 .filename-label {
@@ -13,4 +20,8 @@ button {
 
 .border {
     border: lightgray 1px solid;
+}
+
+.input-small {
+    width: 22px;
 }
