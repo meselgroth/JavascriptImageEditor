@@ -7,13 +7,16 @@ export default class Canvas {
         let imageBitmap = await createImageBitmap(imgElement);
         this.ctx.drawImage(imageBitmap, 0, 0);
     }
-    ChangeColour() {
+    ChangeColour(from, to) {
         let ctx = this.ctx;
 
         let imageData = ctx.getImageData(0, 0, 100, 100); // Get RGBA bytes
-        for (let i = 0; i < imageData.data.length; i++) {
-            if ((i + 1) % 4 === 0) continue; // skip alpha values
-            imageData.data[i] = imageData.data[i] >> 1;
+        for (let i = 0; i < imageData.data.length + 4; i += 4) {
+            if (from.r == imageData.data[i] && from.g == imageData.data[i + 1] && from.b == imageData.data[i + 2]) {
+                imageData.data[i] = to.r;
+                imageData.data[i + 1] = to.g;
+                imageData.data[i + 2] = to.b;
+            }
         }
         ctx.putImageData(imageData, 0, 0);
     }

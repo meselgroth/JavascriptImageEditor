@@ -12,16 +12,24 @@ const rgbFromElements = {
     set greenValue(v) { this.green.value = v; },
     set blueValue(v) { this.blue.value = v; },
 };
+const rgbToElements = {
+    red: document.getElementById('text-to-red'),
+    green: document.getElementById('text-to-green'),
+    blue: document.getElementById('text-to-blue')
+};
 canvasElement.onclick = e => canvas.GetColour(e.x, e.y, rgbFromElements);
+
 document.getElementById('button-darken').onclick = () => {
     // right shift RGB values by 1 bit
-    document.getElementById('text-to-red').value = rgbFromElements.red.value >> 1;
-    document.getElementById('text-to-green').value = rgbFromElements.green.value >> 1;
-    document.getElementById('text-to-blue').value = rgbFromElements.blue.value >> 1;
+    rgbToElements.red.value = rgbFromElements.red.value >> 1;
+    rgbToElements.green.value = rgbFromElements.green.value >> 1;
+    rgbToElements.blue.value = rgbFromElements.blue.value >> 1;
 };
 
 document.getElementById('button-add').onclick = () => canvas.Add(imgElement);
-document.getElementById('button-colour').onclick = canvas.ChangeColour.bind(canvas);
+document.getElementById('button-colour').onclick = () => canvas.ChangeColour(
+    { r: rgbFromElements.red.value, g: rgbFromElements.green.value, b: rgbFromElements.blue.value },
+    { r: rgbToElements.red.value, g: rgbToElements.green.value, b: rgbToElements.blue.value });
 document.getElementById('div-filename').textContent = `(${imgElement.getAttribute('src')})`;
 
 
