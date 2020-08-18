@@ -17,6 +17,7 @@ const rgbToElements = {
     green: document.getElementById('text-to-green'),
     blue: document.getElementById('text-to-blue')
 };
+// Update input values by using setters
 canvasElement.onclick = e => canvas.GetColour(e.x, e.y, rgbFromElements);
 
 document.getElementById('button-darken').onclick = () => {
@@ -36,7 +37,7 @@ document.getElementById('div-filename').textContent = `(${imgElement.getAttribut
 const bitmap = new Bitmap(imgElement);
 document.getElementById('button-bitmap').onclick = async () => {
     const newImg = await bitmap.CopyAndChangeColour();
-
+    // Update DOM by acting on return value
     newImg.className = 'border';
     document.body.appendChild(newImg);
 };

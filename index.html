@@ -8,12 +8,13 @@
 
 <body>
     <h1>Bitmap editor</h1>
-
-    <div>Canvas</div>
+    <h3>Canvas</h3>
+    <p>Click add bitmap to draw the bitmap from the below img tag onto the canvas.</p>
     <canvas id="canvas" class="border" title="Click to read colour"></canvas>
 
     <button id="button-add">Add Bitmap</button>
-    <div>
+    <p>Click canvas to look up colour. Click darken to suggest colour change. Click change colour to change all instances of "From Colour" to "To Colour".</p>
+    <p>
         <label>From Colour</label>
         <input id="text-from-red" class="input-small" />
         <input id="text-from-green" class="input-small" />
@@ -24,10 +25,11 @@
         <input id="text-to-green" class="input-small" />
         <input id="text-to-blue" class="input-small" />
         <button id="button-colour">Change Colour</button>
-    </div>
+    </p>
 
-    <div>Original bitmap <span id='div-filename' class="filename-label"></span></div>
+    <h3>Bitmap Source<span id='div-filename' class="filename-label"></span></h3>
     <img id="img-bitmap" src="./images/Monochrome100x100.bmp" class="border" />
+    <p>Click change bitmap to perform operation directly on bitmap bytes and copy to new img tag.</p>
     <button id="button-bitmap">Change Bitmap</button>
 
     <script src="src/index.js" type="module"></script>
