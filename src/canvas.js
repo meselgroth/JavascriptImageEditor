@@ -11,7 +11,7 @@ export default class Canvas {
         let ctx = this.ctx;
 
         let imageData = ctx.getImageData(0, 0, 100, 100); // Get RGBA bytes
-        for (let i = 0; i < imageData.data.length + 4; i += 4) {
+        for (let i = 0; i < imageData.data.length; i += 4) {
             if (from.r == imageData.data[i] && from.g == imageData.data[i + 1] && from.b == imageData.data[i + 2]) {
                 imageData.data[i] = to.r;
                 imageData.data[i + 1] = to.g;
